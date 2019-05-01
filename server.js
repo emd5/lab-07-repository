@@ -16,7 +16,6 @@ app.get('/hello', (request, response) => {
   response.status(200).send('Hello');
 });
 
-let location;
 // Request for location (lat & lng)
 app.get('/location', (request,response) => {
   try{
@@ -28,14 +27,13 @@ app.get('/location', (request,response) => {
       .end((err, googleMapsApiResponse) => {
 
         //turn it into a location instance
-        location = new Location(queryData, googleMapsApiResponse.body);
+        const location = new Location(queryData, googleMapsApiResponse.body);
 
         //send response
         response.send(location);
       });
   } catch(error){
-    console.log('There was an error with location')
-    response.status(500).send('Status: , error on location');
+    handleError(error, 'location');
   }
 });
 
@@ -54,8 +52,7 @@ app.get('/weather', (request,response) => {
         response.send(weather);
       });
   } catch(error){
-    console.log('error with weather');
-    response.status(500).send('Status: , error on location');
+    handleError(error, 'weather');
   }
 });
 
@@ -75,8 +72,7 @@ app.get('/events', (request,response) => {
         response.send(event);
       });
   } catch(error){
-    console.log('error on events');
-    response.status(500).send('Status: , error on events');
+    handleError(error, 'events');
   }
 });
 
@@ -111,6 +107,13 @@ function getWeather(weatherResponse) {
 function getEvents(eventResponse){
   let result = eventResponse.map(event => new Event(event));
   return result.splice(0,20);
+}
+
+//Error handling
+
+function handleError(response, endpoint){
+  response.status(500).send({status: 500 , responseText: `Error on ${endpoint}`});
+  
 }
 
 
