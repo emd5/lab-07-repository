@@ -22,7 +22,7 @@ app.get('/location', (request,response) => {
     //queryData is what the user typed into the box
     const queryData = request.query.data;
     //make a request to the Google Geocoding API for geocoding data
-    let geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${queryData}&key=${process.env.GOOGLE_MAPS_API_KEY}`;
+    let geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${queryData}&key=${process.env.GOOGLE_API_KEY}`;
     superagent.get(geocodeURL)
       .end((err, googleMapsApiResponse) => {
 
