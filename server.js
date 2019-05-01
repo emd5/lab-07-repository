@@ -113,9 +113,7 @@ function getEvents(eventResponse){
 
 function handleError(response, endpoint){
   response.status(500).send({status: 500 , responseText: `Error on ${endpoint}`});
-  
 }
-
 
 app.listen(PORT,() => console.log(`Listening on port ${PORT}`));
 
