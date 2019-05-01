@@ -22,13 +22,25 @@ Node, JS, Express
 # Features 
 
 ```
-Number and name of feature: Implement Eventbrite
+Number and name of feature: Implement weather API
 
 Estimate of time needed to complete: 4hr
 
 Start time: 9am
 
-Finish time: _____
+Finish time: 1003
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr
+```
+
+```
+Number and name of feature: Implement eventbrite
+
+Estimate of time needed to complete: 4hr
+
+Start time: 9am
+
+Finish time: 1003
+
+Actual time needed to complete: 1 hr
 ```
