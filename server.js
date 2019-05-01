@@ -38,6 +38,27 @@ app.get('/location', (request,response) => {
   }
 });
 
+app.get('/weather', (request,response) => {
+  try{
+    //queryData is what the user typed into the box
+    const queryData = request.query.data;
+    //make a request to the Google Geocoding API for geocoding data
+    let weatherURL = `https://api.darksky.net/forecast/${WEATHER_API_KEY}/${queryData.latitude},${queryData.longitude}`;
+    superagent.get(weatherURL)
+      .end((err, weatherApiResponse) => {
+
+        //turn it into a location instance
+        const weather = getWeather(weatherApiResponse);
+
+        //send response
+        response.send(weather);
+      });
+  } catch(error){
+    console.log('There was an error with location')
+    response.status(500).send('Status: , error on location');
+  }
+});
+
 app.get('/weather', (request, response) => {
   try {
     const weatherData = getWeather();
@@ -58,17 +79,13 @@ function Location(query, res) {
   this.longitude = res.results[0].geometry.location.lng;
 }
 
-function getWeather() {
-  const darkskyData = require('./data/darksky.json');
+function getWeather(response) {
+  // const darkskyData = require('./data/darksky.json');
 
-  // const weatherSummaries = [];
-
-  return darkskyData.daily.data.map(day => {
+  return response.body.data.map(day => {
     return new Weather(day);
   });
 
-
-  // return weatherSummaries;
 }
 
 function Weather(day) {
