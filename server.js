@@ -26,7 +26,6 @@ app.get('/location', (request,response) => {
     superagent.get(geocodeURL)
       .end((err, googleMapsApiResponse) => {
 
-        console.log(googleMapsApiResponse.body);
         //turn it into a location instance
         const location = new Location(queryData, googleMapsApiResponse.body);
 
@@ -62,13 +61,14 @@ function Location(query, res) {
 function getWeather() {
   const darkskyData = require('./data/darksky.json');
 
-  const weatherSummaries = [];
+  // const weatherSummaries = [];
 
-  darkskyData.daily.data.forEach(day => {
-    weatherSummaries.push(new Weather(day));
+  return darkskyData.daily.data.map(day => {
+    return new Weather(day);
   });
 
-  return weatherSummaries;
+
+  // return weatherSummaries;
 }
 
 function Weather(day) {

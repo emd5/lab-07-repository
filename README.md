@@ -2,7 +2,7 @@
 
 **Author**:
 
-Kishor P
+Jorie Fernandex
 Liz Mahoney
 
 **Version**:
@@ -18,22 +18,15 @@ Liz Mahoney
 Node, JS, Express
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource.
-
-## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
 
 # Features 
 
 ```
-Number and name of feature: ________________________________
+Number and name of feature: Implement Eventbrite
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 4hr
 
-Start time: _____
+Start time: 9am
 
 Finish time: _____
 
