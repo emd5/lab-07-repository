@@ -2,22 +2,47 @@
 
 **Author**:
 
-Jorie Fernandex
+Jorie Fernandez
 Liz Mahoney
 
 **Version**:
 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+A city explorer application to gather information based from users input location. Displays location, Eventbrite info, yelp, hiking information.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+Install the following on command line:
+
+  `npm install express dotenv superagent`
+
+On terminal, run
+
+`node server.js`
+
+`nodemon`
+
+Then on browser, type URL `http://localhost:3000`
+
 
 ## Architecture
 Node, JS, Express
 
 ## Change Log
+
+- 5-1-19
+  - Refactored weather api to pull real data from Darksky.
+  - Created event constructor
+  - Add event helper function
+  - Created .get for event and weather api
+    - installed superagent for request/response
+  
+- 4-30-19
+  - Add weather constructor
+  - Add location constructor
+  - Create .get for weather and location
 
 # Features 
 
@@ -34,13 +59,13 @@ Actual time needed to complete: 1 hr
 ```
 
 ```
-Number and name of feature: Implement eventbrite
+Number and name of feature: Implement eventbrite API
 
-Estimate of time needed to complete: 4hr
+Estimate of time needed to complete: 2 hr
 
-Start time: 9am
+Start time: 10:04am
 
-Finish time: 1003
+Finish time: 11:00am
 
-Actual time needed to complete: 1 hr
+Actual time needed to complete: <1hr
 ```
